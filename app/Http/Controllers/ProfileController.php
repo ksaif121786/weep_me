@@ -41,7 +41,7 @@ class ProfileController extends Controller
        $user_data = [
                       'name'=>$request->name,
                       'gender'=>$request->gender,
-                      'profile_img'=>$request->file,
+                      // 'profile_img'=>$request->file,
                       'dob'=>$request->age,
                       'relationship'=>$request->relationship,
                       'language'=>$request->language,

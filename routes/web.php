@@ -14,6 +14,13 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('/clear-cache',function(){
+	Artisan::call('cache:clear');
+	return "cache cleard";
+});
+
+
 Route::get('/',"LoginController@index");
 Route::post('/login',"LoginController@login");
 Route::get('/logout', 'LoginController@logout');

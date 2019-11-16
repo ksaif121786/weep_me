@@ -40,13 +40,13 @@
   
 
 
-<h4 class="mt-3">Name: {{ucfirst($user->name)}}</h4>
-<h4>Gender: {{($user->gender==1)? "Male" :"Female"}}</h4>
-<h4>Age: {{$user->dob}}</h4>
-<h4>Relationship: {{ $user->relationship }} </h4>
-<h4>languages: {{ $user->language}}</h4>
-<h4>hobbies:{{  $user->hobbies}}</h4>
-<h4>About Me : {{$user->myself}}</h4>
+<h4 class="mt-3"><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Name: {{ucfirst($user->name)}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Gender: {{($user->gender==1)? "Male" :"Female"}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Age: {{$user->dob}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Relationship: {{ $user->relationship }} </h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>languages: {{ $user->language}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>hobbies:{{  $user->hobbies}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>About Me : {{$user->myself}}</h4>
 <input type="hidden" id="requesterId" value="{{Auth::id()}}">
 
 <meta name="csrf-token" content="{{ csrf_token() }}">

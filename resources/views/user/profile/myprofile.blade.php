@@ -1,15 +1,42 @@
 @extends('layouts.default')
 @section('content')
+<style type="text/css">
+  
+  .profile-pic {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic:hover .edit {
+  display: block;
+}
+
+.edit {
+  padding-top: 7px; 
+  padding-right: 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.edit a {
+  color: #000;
+}
+</style>
+
 
 <div class="container-fluid">
 <div class="row">
 	<div class="col-sm-6">
-		<div class="profile_image mt-3">
+		<div class="profile_image mt-3 profile-pic">
       @if(Auth::user()->profile_img)
 		<img src="{{asset('public/images/'.Auth::user()->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" width="120" height="100">
+    <div class="edit"><a href="#" id="OpenImgUpload"><i class="fa fa-pencil fa-lg"></i></a></div>
     @else
 
     <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" width="160" height="120">
+    <div class="edit"><a href="#" id="OpenImgUpload"><i class="fa fa-pencil fa-lg"></i></a></div>
     @endif
 
     <form method="post" id="formId" enctype="multipart/form-data" action="{{url('/uploadpf')}}">
@@ -17,7 +44,7 @@
       <input type="file" id="imgupload" name="img" style="display:none"/> 
     </form>
 
-      <a class="btn btn-success" id="OpenImgUpload" href="#"><i class="fa fa-edit" style="font-size:20px;color:red;"></i></a>
+    <!--   <a class="btn btn-success" id="OpenImgUpload" href="#"><i class="fa fa-edit" style="font-size:20px;color:red;"></i></a> -->
         </div>
 	</div>
 	<div class="col-sm-6">
@@ -31,14 +58,14 @@
    <!-- Button to Open the Modal -->
 	
  <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit" style="font-size:20px;color:red;">edit profile</i></a>
-<h4 class="mt-3">Name: {{ucfirst(Auth::user()->name)}}</h4>
-<h4>Gender: {{(Auth::user()->gender==1)? "Male" :"Female"}}</h4>
-<h4>Age: {{ (isset($userdetails)? $userdetails->dob : '') }}</h4>
+<h4 class="mt-3"><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Name: {{ucfirst(Auth::user()->name)}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Gender: {{(Auth::user()->gender==1)? "Male" :"Female"}}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Age: {{ (isset($userdetails)? $userdetails->dob : '') }}</h4>
 
-<h4>Relationship: {{ (isset($userdetails)? $userdetails->relationship : '') }} </h4>
-<h4>languages: {{ (isset($userdetails)? $userdetails->language : '') }}</h4>
-<h4>hobbies:{{ (isset($userdetails)? $userdetails->hobbies : '') }}</h4>
-<h4>About Me : {{ (isset($userdetails)? $userdetails->myself : '') }}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>Relationship: {{ (isset($userdetails)? $userdetails->relationship : '') }} </h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>languages: {{ (isset($userdetails)? $userdetails->language : '') }}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>hobbies:{{ (isset($userdetails)? $userdetails->hobbies : '') }}</h4>
+<h4><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i>About Me : {{ (isset($userdetails)? $userdetails->myself : '') }}</h4>
 
 
 <!-- motto edit model -->
