@@ -32,7 +32,7 @@
 <div class="container-fluid ml-3">
 <div class="functions">
 	<hr>
-	<h5><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i><a href="#" class="text-dark">Friends<strong>(10/100)</strong></a></h5>
+	<h5><i class="fa fa-arrow-right " aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i><a href="{{url('/friend-list')}}" class="text-dark">Friends<strong>(10/100)</strong></a></h5>
     <hr>
 	<h5><i class="fa fa-arrow-right" aria-hidden="true" style="color:#9CAC0D; width: 40px;"></i><a href="{{url('/inbox-chat')}}" class="text-dark">New PMS(0)</a></h5>
     <hr>

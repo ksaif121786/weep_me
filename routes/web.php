@@ -41,5 +41,8 @@ Route::post('/friendrequest','FriendrequestController@friendrequest');
 Route::post('uploadpf','ProfileController@profile_upload');
 Route::get('/online','OnlineController@onlinepeep');
 Route::get('/inbox-chat','InboxController@messages');
+Route::get('/friend-list','FriendrequestController@friend_list');
+
+
 
  });
