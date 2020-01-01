@@ -14,9 +14,9 @@
 	
 		<div class="profile_image mt-3 float-left" >
 		      @if(Auth::user()->profile_img)
-		<img src="{{asset('public/images/'.Auth::user()->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" width="160" height="120" >
+		<img src="{{asset('public/images/'.Auth::user()->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" style="width: 120px; height: 120px; " >
           @else
-        <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" width="160" height="120">
+        <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" style="width: 120px; height: 120px;">
         @endif
         </div>
     

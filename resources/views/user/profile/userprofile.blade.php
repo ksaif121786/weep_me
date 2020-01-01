@@ -1,20 +1,29 @@
 @extends('layouts.default')
 @section('content')
 <div class="container-fluid">
+  @if(Session::has('success'))
+  <div class="row justify-content-center">
+    <div class="col-sm-6">
+      <p class="alert alert-success alert-block">{{Session::get('success')}} Check in <a href="#">Outbox</a></p>
+    </div>
+    
+  </div>
+  
+  @endif
 <div class="row">
 	<div class="col-sm-6">
 		<div class="profile_image mt-3">
 		    @if($user->profile_img)
-    <img src="{{asset('public/images/'.$user->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" width="120" height="100">
+    <img src="{{asset('public/images/'.$user->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" style="width: 120px; height: 120px;" >
     @else
 
-    <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" width="160" height="120">
+    <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" style="width: 120px;  height: 120px;">
     @endif
         </div>
 	</div>
 	<div class="col-sm-6">
 
-		<div class="profile_slogan" style="margin-top: 100px;">
+		<div class="profile_slogan">
 	       <strong>{{(isset($user->motto)? $user->motto:"Hi, i am new here")}}</strong>
         </div>
 	</div>
@@ -36,7 +45,7 @@
 
      @endif
     <!--  <input type="hidden" id="fstatus" value="{{(isset($reqstatus[0]['status']))? $reqstatus[0]['status']: 0}}"> -->
-
+   <a href="{{url('send-message')}}/{{$user->id}}" class="btn btn-success mt-2" id="send_message">Send Message</a>
   
 
 

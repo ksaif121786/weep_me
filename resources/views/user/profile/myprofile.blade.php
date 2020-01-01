@@ -31,11 +31,11 @@
 	<div class="col-sm-6">
 		<div class="profile_image mt-3 profile-pic">
       @if(Auth::user()->profile_img)
-		<img src="{{asset('public/images/'.Auth::user()->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" width="120" height="100">
+		<img src="{{asset('public/images/'.Auth::user()->profile_img)}}" class="img-thumbnail" alt="Cinque Terre" style="width: 120px; height: 120px;">
     <div class="edit"><a href="#" id="OpenImgUpload"><i class="fa fa-pencil fa-lg"></i></a></div>
     @else
 
-    <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" width="160" height="120">
+    <img src="{{asset('public/images/default.png')}}" class="img-thumbnail" alt="Cinque Terre" style="width: 120px; height: 120px;">
     <div class="edit"><a href="#" id="OpenImgUpload"><i class="fa fa-pencil fa-lg"></i></a></div>
     @endif
 

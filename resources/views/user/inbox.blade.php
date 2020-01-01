@@ -1,57 +1,59 @@
 @extends('layouts.default')
 @section('content')
-
+<style>
+	.name{
+		margin-left: 150px;
+		margin-bottom: -30px;	
+		margin-left: 140px;
+	}
+</style>
 <div class="container-fluid">
-	<div class="row col-sm-12  chating_list mt-5 ml-5" >
-		<div class="col-sm-2 slide-box" >
-			<h5 class="bg-warning "><a href="#" class="text-white">Inbox</a></h5>
-			<h5 class="bg-warning "><a href="#" class="text-white">Outbox</a></h5>
-			<h5 class="bg-warning "><a href="#" class="text-white" data-toggle="collapse" data-target="#friend_request">Friend Requests(10)</a></h5>
-	    </div>
-	
-	
-	
-
-
-	<!-- <h6 class="border border-dark" style="width:100%; height:50px;overflow:hidden;">Hi howdddddddddddddddddddddddddddddddddddddddfddddddddddddddddddddddddddddddddddddddddddddghdfhhfhfhfhfhhffh are you man</h6> -->
-	<!-- <div class="row"> -->
-  <div class="col-sm-10 collapse msg-box" id="friend_request">
- 	<div class="col-sm-1.9 float-left" >
-       <img width="80"  class="rounded-circle" height="80" src="{{asset('public/images/default.png')}}">		
-	</div>
-	<div class="col-sm-8 border float-left ml-2">
-		<div>
-			Hey! Hello How Are You Man. i need a friend who can chat me and make my whole day perfect.
+	<h1 align="center">Inbox</h1>
+<div class="row" id="msg">
+<!-- 	<div class="col-sm-12 msg_last mt-2">
+		<div class="name"><h5>Saif khan</h5></div>
+		<div class="col-sm-4 user_profile_pic">
+		 <img src="{{asset('public/images/dummy/img1.jpg')}}" style="width: 80px; height: 80px;">
 		</div>
-	</div>
-</div>
-
-<div class="col-sm-10  collapse msg-box" id="friend_request">
- 	<div class="col-sm-1.9 float-left" >
-       <img width="80"  class="rounded-circle" height="80" src="{{asset('public/images/default.png')}}">		
-	</div>
-	<div class="col-sm-8 border float-left ml-2">
-		<div>
-			Hey! Hello How Are You Man. i need a friend who can chat me and make my whole day perfect.
+		
+		<div class="user_send_message float-right">
+		<h6 style="margin-left:10px;">Hiii Kaise Ho Bhaii</h6	>	
 		</div>
-	</div>
+	</div> -->
+    
+</div>
 </div>
 
-<div class="col-sm-10 collapse msg-box" id="friend_request">
- 	<div class="col-sm-1.9 float-left" >
-       <img width="80"  class="rounded-circle" height="80" src="{{asset('public/images/default.png')}}">		
-	</div>
-	<div class="col-sm-8 border float-left ml-2">
-		<div>
-			Hey! Hello How Are You Man. i need a friend who can chat me and make my whole day perfect.
-		</div>
-	</div>
-</div>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	get_inbox_message();
 
-	
-</div>
-
-</div>
-
+	function get_inbox_message()
+	{
+		// alert("ok");
+		
+		$.ajax({
+			   headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+			},
+			  url:'<?php echo url('/get_message')?>',
+			  method:'POST',
+			  dataType:'Json',
+			  success:function(response){
+               console.log(response);
+   
+               $.each(response,function(index,value) {
+     		 		 
+     		 	 $('#msg').append('<a href="#"><div class="col-sm-12 msg_last mt-2"><div class="name"><h5>'+value.name+'</h5></div><div class="col-sm-4 user_profile_pic"><img src="{{asset("public/images")}}/'+value.profile_img+'" style="width: 80px; height: 80px;" class="rounded-circle"></div><div class="user_send_message float-right"><h6 style="margin-left:10px;">'+value.message+'</h6></div></div></a>');
+                     
+     		 	 });
+     		 	 
+			  }
+			
+		});
+	}
+</script>
 
 @endsection
+
+

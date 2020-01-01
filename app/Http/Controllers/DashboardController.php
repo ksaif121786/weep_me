@@ -17,7 +17,7 @@ class DashboardController extends Controller
     
     public function bigpinboard()
     {  
-    	$data = Pinboard::orderBy('id','desc')->get();
+    	$data = Pinboard::orderBy('id','desc')->paginate(20);
     	return view('user.bigpinboard.board',compact('data'));
     }
 
@@ -37,7 +37,13 @@ class DashboardController extends Controller
        $html ='';
        foreach($data as $row)
        {
-        $html.= '<strong><a href="profile/'.$row->user_id.'">'.$row->name.'</a></strong>'.$row->msg;
+        $html.= '<div class="col-sm-12" >
+                  <div class="card bg-light"  style="margin-left:-10px;">
+                   <strong>
+                   <a href="profile/'.$row->user_id.'">'.$row->name.'</a>
+                   </strong>'.$row->msg.'
+                  </div>
+                </div>';
        }
         
        echo json_encode($html);

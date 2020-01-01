@@ -11,15 +11,16 @@
 	    </div>
 	</div>
 
-	<div class="message_post_area mt-5">
+	<div class="message_post_area mt-5" id="msg">
 		@foreach($data as $row)
-		<div class="col-sm-12">
-			<div class="card bg-light" id="msg" style="margin-left:-10px;">
+		<div class="col-sm-12" >
+			<div class="card bg-light"  style="margin-left:-10px;">
 			<strong><a href="{{url('profile/'.$row->user_id)}}">{{$row->name}}</a></strong>{{$row->msg}}
             </div>
         </div>
 		 @endforeach
 	</div>
+	<h7>{{ $data->links() }}</h7>
 </div>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
@@ -39,6 +40,7 @@
          	      dataType:'Json',
          	      success:function(res){
                   $('#msg').html(res);
+                  location.reload();
          	      }
          });
 		});

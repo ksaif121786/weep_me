@@ -21,7 +21,7 @@
 		<div class="col-sm-5 friend_list mt-5" height="">
 
          @foreach($friends as $row)
-		<i class="fa fa-circle" aria-hidden="true" style="color:#70F75B;"></i>&nbsp;&nbsp;<span class="h5">{{$row[0]->name}}</span><br>
+		<i class="fa fa-circle" aria-hidden="true" style="color:#70F75B;"></i>&nbsp;&nbsp;<span class="h5"><a href="{{url('profile')}}/{{$row[0]->id}}">{{$row[0]->name}}</a></span><br>
 		@endforeach
         </div>
 		@endif
